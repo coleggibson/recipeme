@@ -6,7 +6,7 @@ import '../styles/Content.css'
 
 //add count to ingredients
 //add random recipe
-const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes, setShownRecipes}) => {
+const Content = ({recipes, ingredients, shownRecipes, setIngredients, setRecipes, setShownRecipes}) => {
     
     const capitalize = (string) => {
         let lowercaseResult = string.toLowerCase();
@@ -46,35 +46,38 @@ const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes
         })
         
 
-        .then(function(result) {
-            getRecipeUrl(result)
-            pullMissingIngredients(result)
-            setRecipes([...result])
+        .then( function(result) {
+            const recipes = [...result];
+             recipes.forEach(async (recipe, index) => {
+                recipes[index].link = await getRecipeUrl(recipe.id)
+                console.log(recipes[index].link)
+            })
             
-            console.log(result)
+            // pullMissingIngredients(result)
+            setRecipes([...recipes])
+            
+            console.log(recipes)
         });
         
     }
 
     
-    const getRecipeUrl = (array) => {
-        for (let i = 0; i < array.length; i++){
+    const getRecipeUrl = async (recipeId) => {
         
-        let recipeId = array[i].id
+        
         let recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeId + '/information?apiKey=5a9eaad9b6f54ec5adca1041255d83f2'; 
         
-        fetch(recipeUrl) 
+        return await fetch(recipeUrl) 
     
         .then(function(response) {
             return response.json();
         })
         
         .then(function(response) {
-            array[i].link = response.sourceUrl
-            // setRecipes({...response})
+            return response.sourceUrl
         });
         
-    }
+    
     }
 
     const deleteIngredient = (ingredient) => {
@@ -98,7 +101,7 @@ const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes
 
     const searchRecipes = (recipes) => {
         setShownRecipes([...recipes])
-        console.log(recipes)
+        console.log(shownRecipes)
     }
 
     const pullMissingIngredients = (array) => {
