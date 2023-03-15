@@ -37,7 +37,7 @@ const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes
             urlIngredientArray += ingredients[i].name + ',+'
         }
 
-        let newUrl = 'https:api.spoonacular.com/recipes/findByIngredients?apiKey=5a9eaad9b6f54ec5adca1041255d83f2&ingredients=' + urlIngredientArray.toLowerCase() + '&number=3' ; 
+        let newUrl = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=5a9eaad9b6f54ec5adca1041255d83f2&ingredients=' + urlIngredientArray.toLowerCase() + '&number=3' ; 
         
         fetch(newUrl) 
     
