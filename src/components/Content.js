@@ -61,7 +61,7 @@ const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes
         for (let i = 0; i < array.length; i++){
         
         let recipeId = array[i].id
-        let recipeUrl = 'https:api.spoonacular.com/recipes/' + recipeId + '/information?apiKey=5a9eaad9b6f54ec5adca1041255d83f2'; 
+        let recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeId + '/information?apiKey=5a9eaad9b6f54ec5adca1041255d83f2'; 
         
         fetch(recipeUrl) 
     
