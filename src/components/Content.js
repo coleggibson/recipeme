@@ -8,8 +8,6 @@ import '../styles/Content.css'
 //add random recipe
 const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes, setShownRecipes}) => {
     
-    
-
     const capitalize = (string) => {
         let lowercaseResult = string.toLowerCase();
         let capitalizedResult = lowercaseResult.charAt(0).toUpperCase() + lowercaseResult.slice(1);
@@ -50,7 +48,7 @@ const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes
 
         .then(function(result) {
             getRecipeUrl(result)
-            // pullMissingIngredients(result)
+            pullMissingIngredients(result)
             setRecipes([...result])
             
             console.log(result)
@@ -103,15 +101,13 @@ const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes
         console.log(recipes)
     }
 
-    // const pullMissingIngredients = (array) => {
-    //     for (let i = 0; i < array.length; i++){
-    //     console.log(array[i][6])
-    //     }
-    // }
+    const pullMissingIngredients = (array) => {
+        
+    }
 
     return (
         <div id="content-container">
-            <div id='search-content' style={{ backgroundImage:`url(${foodBackground})`, backgroundSize:'cover'}}>
+            <div id='search-content'>
                 <div id='search-items'>
                     <input id='name' type='text' defaultValue='' placeholder='Enter ingredient'/>
                     <div id='button-container'>
@@ -119,8 +115,7 @@ const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes
                         <input id='ingredient-button' type='button' value='Delete All' onClick={() => deleteAllIngredients(ingredients)}/>
                     </div>
                 </div>
-               
-                <input id='submit-button' type='button' value='Search Recipes' onClick={() => searchRecipes(recipes)}/>
+                
                 <div id='ingredient-section-container'>
                     <div id='ingredient-title'>Ingredients</div>
                     <div id='ingredient-list'>
@@ -135,6 +130,7 @@ const Content = ({recipes, ingredients, ShownRecipes, setIngredients, setRecipes
                         })}
                     </div>
                 </div>
+                <input id='submit-button' type='button' value='Search Recipes' onClick={() => searchRecipes(recipes)}/>
             </div>
             
         </div>

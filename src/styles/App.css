@@ -2,10 +2,23 @@ html, body {
   width: 100%;
   margin: 0px;
   padding: 0px;
+  
   /* background-image: linear-gradient(to right, rgb(147, 193, 204),rgb(236, 216, 128)) */
 }
-
 /* .App {
-  display:flex
+  height: 100vh;
   
 } */
+
+/* #top-content {
+  border: 1px;
+  border-style: solid;
+  border-bottom-left-radius: 15px;
+} */
+
+#bottom-content {
+  background:none;
+  /* margin: 10px;
+  border-radius: 10px;
+  padding: 10px; */
+}

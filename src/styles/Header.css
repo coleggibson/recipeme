@@ -1,10 +1,37 @@
 #header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
     padding: 20px;
-    /* background-image:  */
+    padding-bottom: 0px;
+
+
 }
 #header-title {
-    font-size:xx-large;
+    font-size:xxx-large;
     font-weight: 400;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    background-color: white;
+    width: fit-content;
+    /* padding: 10px; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-style: dashed;
+
+}
+
+#header-description {
+    font-size:large;
+    background-color: white;
+    height: 60px;
+    width: 450px;
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
+ 
 }
 

@@ -5,6 +5,7 @@ import Content from "./components/Content";
 import Results from "./components/Results";
 import './index.css'
 import { useEffect, useState } from "react"
+import { foodBackground } from "./images";
 
 function App() {
 
@@ -18,12 +19,16 @@ function App() {
     const [shownRecipes, setShownRecipes] = useState([]);
 
   return (
-    <div className="App">
-      <Header/>
-      <Content recipes={recipes} ingredients={ingredients} shownRecipes={shownRecipes}
-      setIngredients={setIngredients} setRecipes={setRecipes} setShownRecipes={setShownRecipes}/>
-      <Results recipes={recipes} ingredients={ingredients} shownRecipes={shownRecipes}
-      setIngredients={setIngredients} setRecipes={setRecipes} setShownRecipes={setShownRecipes}/>
+    <div className="App" style={{ backgroundImage:`url(${foodBackground})`, backgroundSize:'repeat-y', backgroundAttachment:'fixed'}}>
+      <div id='top-content'>
+        <Header/>
+        <Content recipes={recipes} ingredients={ingredients} shownRecipes={shownRecipes}
+        setIngredients={setIngredients} setRecipes={setRecipes} setShownRecipes={setShownRecipes}/>
+      </div>
+      <div id='bottom-content'>
+        <Results recipes={recipes} ingredients={ingredients} shownRecipes={shownRecipes}
+        setIngredients={setIngredients} setRecipes={setRecipes} setShownRecipes={setShownRecipes}/>
+      </div>
     </div>
   );
 }
