@@ -37,7 +37,7 @@ const Content = ({recipes, ingredients, shownRecipes, setIngredients, setRecipes
             urlIngredientArray += ingredients[i].name + ',+'
         }
 
-        let newUrl = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=5a9eaad9b6f54ec5adca1041255d83f2&ingredients=' + urlIngredientArray.toLowerCase() + '&number=3' ; 
+        let newUrl = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=5a9eaad9b6f54ec5adca1041255d83f2&ingredients=' + urlIngredientArray.toLowerCase() + '&number=5' ; 
         
         fetch(newUrl) 
     
@@ -48,23 +48,38 @@ const Content = ({recipes, ingredients, shownRecipes, setIngredients, setRecipes
 
         .then( function(result) {
             const recipes = [...result];
-             recipes.forEach(async (recipe, index) => {
-                recipes[index].link = await getRecipeUrl(recipe.id)
-                console.log(recipes[index].link)
-            })
-            
-            // pullMissingIngredients(result)
+            createRecipe(recipes)
             setRecipes([...recipes])
-            
             console.log(recipes)
+            
         });
         
     }
 
-    
+    const createRecipe = (recipes) => {
+        recipes.forEach(async (recipe, index) => {
+            recipes[index].link = await getRecipeUrl(recipe.id)
+            recipes[index].missedIngredientsObject = await pullMissingIngredients(recipe.missedIngredients)
+        })
+        
+    }
+
+    const pullMissingIngredients = async (array) => {
+        let missingIngredientObject = ''
+        for (let i=0; i < array.length; i++){
+            if (missingIngredientObject === '') {
+                missingIngredientObject += array[i].name
+                
+            } else {
+                missingIngredientObject += ', ' + array[i].name
+            }
+            
+        }
+       return await missingIngredientObject
+    }
+
+
     const getRecipeUrl = async (recipeId) => {
-        
-        
         let recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeId + '/information?apiKey=5a9eaad9b6f54ec5adca1041255d83f2'; 
         
         return await fetch(recipeUrl) 
@@ -75,9 +90,8 @@ const Content = ({recipes, ingredients, shownRecipes, setIngredients, setRecipes
         
         .then(function(response) {
             return response.sourceUrl
+            
         });
-        
-    
     }
 
     const deleteIngredient = (ingredient) => {
@@ -101,12 +115,8 @@ const Content = ({recipes, ingredients, shownRecipes, setIngredients, setRecipes
 
     const searchRecipes = (recipes) => {
         setShownRecipes([...recipes])
-        console.log(shownRecipes)
     }
 
-    const pullMissingIngredients = (array) => {
-        
-    }
 
     return (
         <div id="content-container">

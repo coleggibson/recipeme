@@ -12,7 +12,8 @@ const Results = ({recipes, shownRecipes, setShownRecipes}) => {
                                     <img className='recipe-image' src={recipe.image}></img>
                                     <div className='recipe-content-container'>
                                         <div className='recipe-name'>{recipe.title}</div>
-                                        <a className ='recipe-url' href={recipe.link}>Click Here For Recipe</a>
+                                        <a className ='recipe-url' href={recipe.link}>Click here for recipe</a>
+                                        <div className ='recipe-missed-ingredients'>Missing ingredients: {recipe.missedIngredientsObject}</div>
                                     </div>
                             </div>
                             )
