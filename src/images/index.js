@@ -1,1 +1,0 @@
-export const foodBackground = require ('./foodbackground.jpg')
