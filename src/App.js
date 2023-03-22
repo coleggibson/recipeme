@@ -11,10 +11,7 @@ function App() {
 
   const [ingredients, setIngredients] = useState ([]);
 
-  const [recipes, setRecipes] = useState([
-      {title: 'Cornmeal mix for a big family', link:'www.cornmeal.com', id:123},
-      {title: 'Carrot soufle for the big fam on board',link:'www.carrot.com', id:125},
-  ]);
+  const [recipes, setRecipes] = useState([]);
   
     const [shownRecipes, setShownRecipes] = useState([]);
 
