@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/recipeme/static/css/main.8ed9a51e.css",
-    "main.js": "/recipeme/static/js/main.1d5f6b79.js",
+    "main.js": "/recipeme/static/js/main.d165e31c.js",
     "static/media/foodbackground.jpg": "/recipeme/static/media/foodbackground.127a5500c370599d121c.jpg",
     "index.html": "/recipeme/index.html",
     "main.8ed9a51e.css.map": "/recipeme/static/css/main.8ed9a51e.css.map",
-    "main.1d5f6b79.js.map": "/recipeme/static/js/main.1d5f6b79.js.map"
+    "main.d165e31c.js.map": "/recipeme/static/js/main.d165e31c.js.map"
   },
   "entrypoints": [
     "static/css/main.8ed9a51e.css",
-    "static/js/main.1d5f6b79.js"
+    "static/js/main.d165e31c.js"
   ]
 }
