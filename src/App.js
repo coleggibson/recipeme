@@ -17,7 +17,7 @@ function App() {
     const [shownRecipes, setShownRecipes] = useState([]);
 
   return (
-    <div className="App" style={{ backgroundImage:`url(${foodBackground})`, backgroundSize:'repeat-y', backgroundAttachment:'fixed', height:'100vh'}}>
+    <div className="App" style={{ backgroundImage:`url(${foodBackground})`, backgroundSize:'repeat-y', height:'100%'}}>
       <div id='top-content'>
         <Header/>
         {/* <Login/> */}
