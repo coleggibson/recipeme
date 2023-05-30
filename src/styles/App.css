@@ -10,11 +10,9 @@ html, body {
   
 } */
 
-/* #top-content {
-  border: 1px;
-  border-style: solid;
-  border-bottom-left-radius: 15px;
-} */
+#top-content {
+  height: 100vh;
+}
 
 #bottom-content {
   background:none;
